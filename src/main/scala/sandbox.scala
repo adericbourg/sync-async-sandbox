@@ -1,14 +1,20 @@
 import scala.concurrent.Future
 
-class Sync {
-  def one: Return1 = ???
-  def two: Return2 = ???
+trait Yay {
+  def one()
+  def two()
 }
 
-class Async {
-  def one: Future[Return1] = ???
-  def two: Future[Return2] = ???
+class Sync extends Yay {
+  def one(): Return1 = ???
+  def two(): Return2 = ???
+}
+
+class Async extends Yay {
+  def one(): Future[Return1] = ???
+  def two(): Future[Return2] = ???
 }
 
 case class Return1()
+
 case class Return2()
